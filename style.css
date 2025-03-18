@@ -58,6 +58,7 @@ nav ul li a {
     font-weight: bold;
 }
 
+/* Sección Hero */
 .hero {
     text-align: center;
     padding: 100px 20px;
@@ -91,6 +92,7 @@ nav ul li a {
     text-align: justify;
 }
 
+/* Sección de Servicios */
 #servicios {
     padding: 40px 20px;
     background-color: #ffffff;
@@ -113,24 +115,48 @@ nav ul li a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
     flex: 1 1 300px; /* Flexbox para hacerlo responsive */
+    border: 2px solid transparent; /* Borde transparente por defecto */
+    transition: all 0.3s ease; /* Transición suave para animaciones */
 }
 
+/* Bordes dorados al hacer hover */
+.service:hover {
+    border: 2px solid #ffd700; /* Borde dorado */
+    transform: translateY(-10px); /* Efecto de levitación */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+/* Animación de entrada para los cuadros de servicios */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicar animación a los cuadros de servicios */
+.service {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Estilos para el ícono de servicio */
 .service-icon {
     width: 80px;
     height: 80px;
     margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Animación para el ícono */
 }
 
-.service h3 {
-    font-size: 24px;
-    margin: 10px 0;
+/* Efecto de escala en el ícono al hacer hover */
+.service:hover .service-icon {
+    transform: scale(1.1); /* Escalar el ícono */
 }
 
-.service p {
-    font-size: 16px;
-    color: #666;
-}
-
+/* Sección de Mensaje y Versículo */
 #mensaje-versiculo {
     text-align: center;
     padding: 40px 20px;
@@ -155,6 +181,7 @@ nav ul li a {
     color: #333; /* Color gris oscuro */
 }
 
+/* Pie de página */
 footer {
     background-color: #ffffff; /* Fondo blanco */
     color: #333;
@@ -180,6 +207,7 @@ footer {
 
 /* Media Queries para Responsive Design */
 @media (max-width: 768px) {
+    /* Menú hamburguesa en móviles */
     .hamburger {
         display: block; /* Mostrar ícono de hamburguesa */
     }
@@ -207,12 +235,58 @@ footer {
         text-align: center;
     }
 
+    /* Ajustes para la sección Hero */
     .hero {
         padding: 60px 20px;
     }
 
     .animated-title {
-        font-size: 36px;
+        font-size: 36px; /* Título más pequeño en móviles */
     }
 
-    .inspir
+    .inspirational-text {
+        font-size: 16px; /* Texto más pequeño en móviles */
+    }
+
+    /* Ajustes para los servicios */
+    .service {
+        flex: 1 1 100%; /* Ocupar todo el ancho en móviles */
+        margin: 10px 0;
+    }
+
+    /* Ajustes para el mensaje y versículo */
+    .beautiful-message {
+        font-size: 18px;
+    }
+
+    .bible-verse {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes adicionales para pantallas muy pequeñas */
+    .animated-title {
+        font-size: 28px; /* Título aún más pequeño */
+    }
+
+    .inspirational-text {
+        font-size: 14px; /* Texto más pequeño */
+    }
+
+    .service h3 {
+        font-size: 20px; /* Títulos de servicios más pequeños */
+    }
+
+    .service p {
+        font-size: 14px; /* Texto de servicios más pequeño */
+    }
+
+    .beautiful-message {
+        font-size: 16px;
+    }
+
+    .bible-verse {
+        font-size: 18px;
+    }
+}
