@@ -290,3 +290,61 @@ footer {
         font-size: 18px;
     }
 }
+
+/* Estilos para el footer */
+footer {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #333;
+    text-align: center;
+    padding: 40px 0; /* Más padding */
+    border-top: 1px solid #e0e0e0; /* Borde superior */
+    position: relative; /* Para posicionar los íconos correctamente */
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #333;
+    text-align: center;
+    padding: 40px 0; /* Más padding */
+    border-top: 1px solid #e0e0e0; /* Borde superior */
+    position: relative; /* Para posicionar los íconos correctamente */
+}
+
+/* Contenedor de íconos de redes sociales en el footer */
+.social-icons {
+    margin-bottom: 20px; /* Más espacio */
+    display: flex;
+    justify-content: center; /* Centrar los íconos */
+    gap: 20px; /* Espacio entre los íconos */
+}
+
+/* Estilos base para los íconos de redes sociales */
+.social-icons a {
+    background-color: transparent; /* Fondo transparente */
+    color: inherit; /* Hereda el color del ícono */
+    font-size: 24px; /* Tamaño del ícono */
+    text-decoration: none; /* Quita el subrayado */
+    transition: all 0.3s ease;
+}
+
+/* Efecto al hacer hover */
+.social-icons a:hover {
+    transform: scale(1.1); /* Efecto de escala */
+}
+
+/* Colores personalizados para cada red social */
+.social-icons .fa-tiktok {
+    color: #000000; /* Color negro para TikTok */
+}
+
+.social-icons .fa-facebook {
+    color: #1877f2; /* Color azul de Facebook */
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+    .social-icons a {
+        font-size: 20px; /* Ícono más pequeño */
+    }
+}
