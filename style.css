@@ -200,7 +200,106 @@ nav ul li a:hover {
     }
 }
 
-/* Estilos para el footer */
+/* Estilos para la sección de servicios */
+#servicios {
+    padding: 20px;
+    text-align: center;
+}
+
+.service-title-container h2 {
+    color: #9c27b0; /* Morado claro */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.service-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre filas */
+    max-width: 1200px; /* Ancho máximo para el contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+}
+
+.service-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espacio entre servicios */
+}
+
+.service {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 2px solid #9c27b0; /* Borde morado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: calc(50% - 10px); /* Dos servicios por fila */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animación al hacer hover */
+.service:hover {
+    transform: scale(1.05); /* Escala la tarjeta */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+/* Contenedor de la imagen */
+.service-image-container {
+    width: 100%;
+    height: 250px; /* Altura aumentada para que la imagen se vea más grande */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Imagen dentro del contenedor */
+.service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajustar la imagen al contenedor */
+    object-position: center; /* Centrar la imagen */
+}
+
+.service-content {
+    padding: 15px;
+}
+
+.service-content h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.service-content p {
+    font-size: 1em;
+    color: #555;
+}
+
+.service-time {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Estilos para el ícono de reloj */
+.clock-icon {
+    width: 24px; /* Tamaño del ícono */
+    height: 24px;
+    margin-right: 8px; /* Espacio entre el ícono y el texto */
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+    .service-row {
+        flex-direction: column; /* Apilar servicios verticalmente */
+    }
+
+    .service {
+        width: 100%; /* Ocupar todo el ancho */
+    }
+}
+
+/* Pie de página */
 footer {
     background-color: #ffffff; /* Fondo blanco */
     color: #333;
@@ -245,5 +344,68 @@ footer {
 @media (max-width: 768px) {
     .social-icons a {
         font-size: 20px; /* Ícono más pequeño */
+    }
+}
+
+/* Sección de Mensaje y Versículo */
+#mensaje-versiculo {
+    padding: 60px 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    text-align: center;
+}
+
+.message-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Fondo gris claro */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.beautiful-message {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333; /* Color de texto oscuro */
+    margin-bottom: 20px;
+    font-style: italic; /* Texto en cursiva */
+}
+
+.beautiful-message strong {
+    color: #9c27b0; /* Morado claro para resaltar */
+    font-weight: bold;
+}
+
+.bible-verse {
+    font-size: 1.1rem;
+    font-style: italic; /* Texto en cursiva */
+    color: #555; /* Color de texto gris oscuro */
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0; /* Fondo gris claro */
+    border-left: 4px solid #9c27b0; /* Borde izquierdo morado */
+    border-radius: 5px;
+}
+
+/* Animación de entrada */
+[data-aos="fade-up"] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-aos="fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+    .beautiful-message {
+        font-size: 1rem; /* Tamaño de fuente más pequeño en móviles */
+    }
+
+    .bible-verse {
+        font-size: 1rem; /* Tamaño de fuente más pequeño en móviles */
     }
 }
