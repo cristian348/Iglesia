@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iglesia Bethel</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Iconos de redes sociales y hamburguesa -->
+    <title>Página - Iglesia Bethel</title>
+    <!-- Iconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Encabezado -->
-    <header>
+      <!-- Encabezado -->
+      <header>
         <div class="logo-container">
             <img src="LOGO-SABANAGRANDE.png" alt="Logo Iglesia Bethel" class="logo">
             <h1>Iglesia Bethel</h1>
@@ -26,13 +27,19 @@
                 <li><a href="Index1.html">Eventos</a></li>
                 <li><a href="index2.html">Nosotros</a></li>
             </ul>
+            <!-- Imagen dentro del menú (solo para móviles) -->
+            <div class="menu-image">
+                <img src="LOGO-SABANAGRANDE.png" alt="Imagen del menú">
+            </div>
         </nav>
     </header>
 
+    <script src="script.js"></script>
+
     <!-- Sección de Inicio -->
     <section id="inicio" class="hero">
-        <h2 class="animated-title">Iglesia Bethel</h2>
-        <p class="inspirational-text">
+        <h2 class="animated-title" data-aos="fade-down" data-aos-duration="1000">Iglesia Bethel</h2>
+        <p class="inspirational-text" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             En la <strong>Iglesia Bethel</strong>, creemos en el poder de la fe, la comunidad y el amor. Somos un lugar donde las personas pueden encontrar esperanza, sanación y un propósito más profundo en sus vidas. Nuestra misión es guiar a las personas hacia una relación transformadora con Dios, apoyándolas en cada paso de su camino espiritual.
             <br><br>
             En Bethel, no solo somos una congregación; somos una familia. Aquí, todos son bienvenidos, sin importar su pasado o circunstancias. Nos esforzamos por crear un ambiente donde cada persona se sienta valorada, amada y motivada a crecer en su fe.
@@ -41,35 +48,89 @@
         </p>
     </section>
 
-   <!-- Sección de Servicios -->
+<!-- Sección de Servicios -->
 <section id="servicios">
+    <div class="service-title-container">
+        <h2>Nuestros Servicios</h2>
+    </div>
     <div class="service-box">
-        <div class="service">
-            <img src="https://cdn-icons-png.flaticon.com/512/619/619153.png" alt="Ícono de Iglesia" class="service-icon">
-            <h3>Servicio Juvenil</h3>
-            <p>Únete a nuestro servicio juvenil los sábados a las 6:00 PM. Un espacio para jóvenes donde compartimos la palabra de Dios, alabanzas y actividades recreativas. ¡Ven y sé parte de esta experiencia transformadora!</p>
+        <!-- Primer par de servicios -->
+        <div class="service-row">
+            <div class="service">
+                <div class="service-image-container">
+                    <img src="daniel-schaffer-arwwg4geM2A-unsplash.jpg" alt="Imagen de Servicio Juvenil" class="service-image">
+                </div>
+                <div class="service-content">
+                    <h3>Servicio Juvenil</h3>
+                    <p>Únete a nuestro servicio juvenil los sábados a las 6:00 PM. Un espacio para jóvenes donde compartimos la palabra de Dios, alabanzas y actividades recreativas. ¡Ven y sé parte de esta experiencia transformadora!</p>
+                    <div class="service-time">
+                        <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="#FF6F61" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            <path fill="#FF6F61" d="M16.24 7.76l-4.24 4.24V7h-2v6h6v-2h-4.24l4.24-4.24z"/>
+                        </svg>
+                        <span>Sábado 6:00 PM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="service">
+                <div class="service-image-container">
+                    <img src="dominical.png" alt="Imagen de Servicio General" class="service-image">
+                </div>
+                <div class="service-content">
+                    <h3>Servicio Dominical</h3>
+                    <p>Nuestro servicio general se realiza los domingos a las 9:00 AM. Ven y adora con nosotros en un ambiente lleno de amor y fe. ¡Déjate guiar por la presencia de Dios y fortalece tu espíritu!</p>
+                    <div class="service-time">
+                        <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="#6B5B95" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            <path fill="#6B5B95" d="M16.24 7.76l-4.24 4.24V7h-2v6h6v-2h-4.24l4.24-4.24z"/>
+                        </svg>
+                        <span>Domingo 9:00 AM</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="service">
-            <img src="https://cdn-icons-png.flaticon.com/512/619/619153.png" alt="Ícono de Iglesia" class="service-icon">
-            <h3>Servicio General</h3>
-            <p>Nuestro servicio general se realiza los domingos a las 9:00 AM. Ven y adora con nosotros en un ambiente lleno de amor y fe. ¡Déjate guiar por la presencia de Dios y fortalece tu espíritu!</p>
-        </div>
-        <div class="service">
-            <img src="https://cdn-icons-png.flaticon.com/512/619/619153.png" alt="Ícono de Iglesia" class="service-icon">
-            <h3>Servicio de Miércoles</h3>
-            <p>Los miércoles a las 7:00 PM nos reunimos para compartir un momento de reflexión y oración. Es un espacio para recargar energías espirituales y conectar con Dios en medio de la semana. ¡Te esperamos!</p>
-        </div>
-        <div class="service">
-            <img src="https://cdn-icons-png.flaticon.com/512/619/619153.png" alt="Ícono de Iglesia" class="service-icon">
-            <h3>Servicio de Ayuno</h3>
-            <p>Los sábados por la mañana a las 8:20 AM tenemos nuestro servicio de ayuno. Un tiempo especial para buscar a Dios con humildad y entrega, renovando nuestras fuerzas y recibiendo su bendición. ¡Ven y vive esta experiencia de fe y renovación!</p>
+
+        <!-- Segundo par de servicios -->
+        <div class="service-row">
+            <div class="service">
+                <div class="service-image-container">
+                    <img src="miercoles.png" alt="Imagen de Servicio de Miércoles" class="service-image">
+                </div>
+                <div class="service-content">
+                    <h3>Servicio de Miércoles</h3>
+                    <p>Los miércoles a las 7:00 PM nos reunimos para compartir un momento de reflexión y oración. Es un espacio para recargar energías espirituales y conectar con Dios en medio de la semana. ¡Te esperamos!</p>
+                    <div class="service-time">
+                        <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="#88B04B" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            <path fill="#88B04B" d="M16.24 7.76l-4.24 4.24V7h-2v6h6v-2h-4.24l4.24-4.24z"/>
+                        </svg>
+                        <span>Miércoles 7:00 PM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="service">
+                <div class="service-image-container">
+                    <img src="ayuno.jpg" alt="Imagen de Servicio de Ayuno" class="service-image">
+                </div>
+                <div class="service-content">
+                    <h3>Servicio de Ayuno</h3>
+                    <p>Los sábados por la mañana a las 8:20 AM tenemos nuestro servicio de ayuno. Un tiempo especial para buscar a Dios con humildad y entrega, renovando nuestras fuerzas y recibiendo su bendición. ¡Ven y vive esta experiencia de fe y renovación!</p>
+                    <div class="service-time">
+                        <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="#FFA500" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            <path fill="#FFA500" d="M16.24 7.76l-4.24 4.24V7h-2v6h6v-2h-4.24l4.24-4.24z"/>
+                        </svg>
+                        <span>Sábado 8:20 AM</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
     <!-- Sección de Mensaje y Versículo -->
     <section id="mensaje-versiculo">
-        <div class="message-container">
+        <div class="message-container" data-aos="fade-up" data-aos-duration="1000">
             <p class="beautiful-message">
                 En la <strong>Iglesia Bethel</strong>, creemos que nunca es tarde para empezar de nuevo. Cada día es una oportunidad para acercarse a Dios, encontrar paz y renovar tu espíritu. ¡Dios te ama y siempre está listo para recibirte con amor y misericordia!
             </p>
@@ -78,7 +139,6 @@
             </p>
         </div>
     </section>
-
 
     <!-- Pie de Página -->
     <footer>
@@ -90,6 +150,10 @@
         <p>&copy; 2025 Iglesia Bethel. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>

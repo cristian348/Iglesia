@@ -1,24 +1,25 @@
-/* Estilos generales para el menú y el footer */
+/* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff; /* Fondo blanco */
+    background-color: #f9f9f9;
     color: #333;
 }
 
-/* Encabezado y menú */
+/* Encabezado */
 header {
-    background-color: #ffffff; /* Fondo blanco */
+    background-color: #ffffff;
     color: #000;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
+/* Contenedor del logo */
 .logo-container {
     display: flex;
     align-items: center;
@@ -35,14 +36,19 @@ header h1 {
     margin: 0;
 }
 
-/* Menú hamburguesa (oculto por defecto) */
+/* Ícono de hamburguesa */
 .hamburger {
-    display: none;
+    display: none; /* Oculto por defecto en pantallas grandes */
     font-size: 24px;
     cursor: pointer;
 }
 
-/* Estilos para la lista del menú */
+/* Menú de navegación */
+nav {
+    display: flex;
+    align-items: center;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -62,191 +68,211 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ffd700; /* Color dorado al hacer hover */
+    color: #9c27b0; /* Morado claro al hacer hover */
 }
 
-/* Pie de página */
-footer {
-    background-color: #ffffff; /* Fondo blanco */
-    color: #333;
-    text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #e0e0e0; /* Borde superior */
+/* Ocultar la imagen en la versión de escritorio */
+.menu-image {
+    display: none;
 }
 
-.social-icons {
-    margin-bottom: 10px;
-}
-
-.social-icons a {
-    color: #666; /* Color gris para los íconos */
-    font-size: 24px;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #000; /* Color negro al pasar el mouse */
-}
-
-/* Estilos responsive para el menú */
+/* Estilos para móviles */
 @media (max-width: 768px) {
-    /* Mostrar ícono de hamburguesa en móviles */
+    /* Mostrar el ícono de hamburguesa en móviles */
     .hamburger {
         display: block;
     }
 
-    /* Ocultar menú por defecto en móviles */
+    /* Ocultar el menú por defecto en móviles */
     nav {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        position: fixed; /* Fijo para que se superponga */
+        top: 0;
+        right: -250px; /* Inicialmente fuera de la pantalla */
+        width: 250px; /* Ancho pequeño */
+        height: 100vh; /* Altura completa */
         background-color: #ffffff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-left: 2px solid #9c27b0; /* Borde izquierdo morado */
+        box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+        transition: right 0.3s ease; /* Animación suave */
     }
 
-    /* Mostrar menú cuando está activo */
+    /* Mostrar el menú cuando está activo */
     nav.active {
-        display: block;
+        display: block; /* Mostrar el menú */
+        right: 0; /* Muestra el menú desde la derecha */
     }
 
-    /* Cambiar a disposición vertical en móviles */
+    /* Estilos para el menú en móviles */
     nav ul {
-        flex-direction: column;
+        flex-direction: column; /* Elementos uno debajo del otro */
+        padding: 20px 0; /* Espaciado interno */
     }
 
     nav ul li {
-        margin: 10px 0;
-        text-align: center;
+        margin: 0; /* Sin margen entre elementos */
+        text-align: left; /* Alinear texto a la izquierda */
+        padding: 10px 20px; /* Espaciado interno */
+    }
+
+    nav ul li a {
+        font-size: 16px;
+        display: block; /* Hace que los enlaces ocupen todo el ancho */
+        color: #333; /* Color de texto oscuro */
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        color: #9c27b0; /* Morado claro al hacer hover */
+    }
+
+    /* Mostrar la imagen solo en móviles */
+    .menu-image {
+        display: block; /* Mostrar la imagen */
+        text-align: center; /* Centrar la imagen */
+        padding: 20px; /* Espaciado interno */
+        border-top: 2px solid #9c27b0; /* Borde superior morado */
+        margin-top: 20px; /* Espacio entre el menú y la imagen */
+    }
+
+    .menu-image img {
+        max-width: 100%; /* Ajustar la imagen al ancho del menú */
+        height: auto; /* Mantener la proporción */
+        border-radius: 8px; /* Bordes redondeados */
     }
 }
 
-/* Estilos específicos para la página "Nosotros" */
-
-/* Hero Section */
-.hero-nosotros {
+/* Sección Hero */
+.hero {
     text-align: center;
     padding: 100px 20px;
     background-color: #f0f0f0; /* Fondo gris claro */
     color: #333;
-    animation: fadeIn 2s ease-in-out;
 }
 
+/* Estilos del título */
 .animated-title {
+    color: #9c27b0; /* Morado claro */
     font-size: 48px;
-    animation: slideIn 1.5s ease-out;
+    margin-bottom: 20px;
+    opacity: 0; /* Inicialmente invisible */
+    transform: scale(0.8); /* Escala inicial para el efecto de "pop" */
+    animation: popIn 1s ease forwards; /* Animación de "pop" */
 }
 
-@keyframes fadeIn {
-    from {
+/* Animación de "pop" para el título */
+@keyframes popIn {
+    0% {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: scale(0.8);
     }
-    to {
+    100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
     }
 }
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
+/* Estilos del texto inspiracional */
 .inspirational-text {
     font-size: 18px;
     line-height: 1.6;
     max-width: 800px;
     margin: 20px auto;
     padding: 0 20px;
-    animation: fadeIn 2.5s ease-in-out;
+    color: #555;
+    text-align: justify;
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateY(20px); /* Desplazamiento inicial */
+    animation: fadeInUp 1s ease 0.5s forwards; /* Animación de "fade-in" con retraso */
 }
 
-/* Sección de historia */
+/* Animación de "fade-in" para el texto */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #4A148C; /* Morado para títulos */
+}
+
+p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Hero Section - Nosotros */
+.hero-nosotros {
+    background: linear-gradient(rgba(244, 244, 244, 0.9), rgba(244, 244, 244, 0.9)), url('iglesia-bethel.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #4A148C; /* Texto morado */
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero-nosotros h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-nosotros .inspirational-text {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+/* Sección de Historia */
 .historia {
     padding: 60px 20px;
     text-align: center;
-    background-color: #f0f0f0; /* Fondo gris claro */
-    color: #333;
-    animation: fadeIn 3s ease-in-out;
-    position: relative; /* Necesario para el pseudo-elemento */
+    background-color: #ffffff; /* Fondo blanco */
 }
 
-.historia::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%; /* Ancho de la línea */
-    max-width: 600px; /* Máximo ancho de la línea */
-    height: 2px; /* Grosor de la línea */
-    background-color: #ffd700; /* Color dorado */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+.historia h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
 .historia-texto {
-    font-size: 18px;
-    line-height: 1.6;
     max-width: 800px;
     margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
 }
 
-/* Sección de servicios */
-.servicios {
-    padding: 60px 20px;
-    background-color: #ffffff;
-    text-align: center;
+/* Espacio entre secciones */
+.separador {
+    height: 60px; /* Espacio entre secciones */
+    background-color: transparent; /* Sin fondo */
 }
 
-.servicios-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.servicio-item {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 2px solid transparent; /* Borde transparente por defecto */
-    flex: 1 1 300px;
-    transition: all 0.3s ease;
-}
-
-.servicio-item:hover {
-    border: 2px solid #ffd700; /* Borde dorado al hacer hover */
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.servicio-item h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #666;
-}
-
-.servicio-item p {
-    font-size: 16px;
-    color: #666;
-}
-
-/* Estilos para la sección de Servolution */
+/* Sección Servolution */
 #servolution {
-    background-color: #f9f9f9; /* Fondo gris claro */
     padding: 60px 20px;
+    background-color: #f4f4f4; /* Fondo gris claro */
     text-align: center;
 }
 
@@ -256,126 +282,115 @@ footer {
 }
 
 .servolution-title {
-    font-size: 36px;
-    color: #333;
+    font-size: 2.5rem;
     margin-bottom: 20px;
-    animation: fadeIn 2s ease-in-out;
 }
 
 .servolution-description {
-    font-size: 18px;
+    font-size: 1.1rem;
     line-height: 1.8;
-    color: #555;
     margin-bottom: 20px;
 }
 
-.servolution-events {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.servolution-cta {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Estilos para el botón "Saber más" */
 .servolution-button {
-    background-color: transparent; /* Fondo transparente */
-    color: #000; /* Texto negro */
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 50px;
+    background-color: #4A148C; /* Botón morado */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    border: 2px solid #ffd700; /* Borde dorado */
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .servolution-button:hover {
-    color: #ffd700; /* Texto dorado al hacer hover */
-    border: 3px solid #ffd700; /* Borde más grueso al hacer hover */
+    background-color: #6A1B9A; /* Morado más claro al hacer hover */
     transform: scale(1.05);
 }
 
-/* Animación de entrada */
+/* Sección Yolanda Padilla */
+#yolanda-padilla {
+    padding: 60px 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    text-align: center;
+}
+
+#yolanda-padilla h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.yolanda-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.price-tag {
+    background-color: #FFD700; /* Dorado para la etiqueta de precio */
+    color: #4A148C; /* Texto morado */
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.cta-button {
+    background-color: #4A148C; /* Botón morado */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #6A1B9A; /* Morado más claro al hacer hover */
+    transform: scale(1.05);
+}
+
+/* Pie de página */
+footer {
+    background-color: #4A148C; /* Fondo morado */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #FFD700; /* Dorado al hacer hover */
+}
+
+/* Animaciones */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .animated-title {
-        font-size: 36px;
-    }
-
-    .inspirational-text {
-        font-size: 16px;
-    }
-
-    .servicios-grid {
-        flex-direction: column;
-    }
-
-    .servicio-item {
-        flex: 1 1 100%;
-    }
-}
-
-/* Estilos para el footer */
-footer {
-    background-color: #ffffff; /* Fondo blanco */
-    color: #333;
-    text-align: center;
-    padding: 40px 0; /* Más padding */
-    border-top: 1px solid #e0e0e0; /* Borde superior */
-    position: relative; /* Para posicionar los íconos correctamente */
-}
-
-/* Contenedor de íconos de redes sociales en el footer */
-.social-icons {
-    margin-bottom: 20px; /* Más espacio */
-    display: flex;
-    justify-content: center; /* Centrar los íconos */
-    gap: 20px; /* Espacio entre los íconos */
-}
-
-/* Estilos base para los íconos de redes sociales */
-.social-icons a {
-    background-color: transparent; /* Fondo transparente */
-    color: inherit; /* Hereda el color del ícono */
-    font-size: 24px; /* Tamaño del ícono */
-    text-decoration: none; /* Quita el subrayado */
-    transition: all 0.3s ease;
-}
-
-/* Efecto al hacer hover */
-.social-icons a:hover {
-    transform: scale(1.1); /* Efecto de escala */
-}
-
-/* Colores personalizados para cada red social */
-.social-icons .fa-tiktok {
-    color: #000000; /* Color negro para TikTok */
-}
-
-.social-icons .fa-facebook {
-    color: #1877f2; /* Color azul de Facebook */
-}
-
-/* Ajustes para dispositivos móviles */
-@media (max-width: 768px) {
-    .social-icons a {
-        font-size: 20px; /* Ícono más pequeño */
     }
 }

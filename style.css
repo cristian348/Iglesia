@@ -1,12 +1,13 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff; /* Fondo blanco */
+    background-color: #f9f9f9;
     color: #333;
 }
 
+/* Encabezado */
 header {
     background-color: #ffffff;
     color: #000;
@@ -18,6 +19,7 @@ header {
     position: relative;
 }
 
+/* Contenedor del logo */
 .logo-container {
     display: flex;
     align-items: center;
@@ -34,11 +36,17 @@ header h1 {
     margin: 0;
 }
 
-/* Menú hamburguesa */
+/* Ícono de hamburguesa */
 .hamburger {
-    display: none; /* Oculto por defecto */
+    display: none; /* Oculto por defecto en pantallas grandes */
     font-size: 24px;
     cursor: pointer;
+}
+
+/* Menú de navegación */
+nav {
+    display: flex;
+    align-items: center;
 }
 
 nav ul {
@@ -56,6 +64,84 @@ nav ul li a {
     color: #000;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #9c27b0; /* Morado claro al hacer hover */
+}
+
+/* Ocultar la imagen en la versión de escritorio */
+.menu-image {
+    display: none;
+}
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+    /* Mostrar el ícono de hamburguesa en móviles */
+    .hamburger {
+        display: block;
+    }
+
+    /* Ocultar el menú por defecto en móviles */
+    nav {
+        display: none;
+        position: fixed; /* Fijo para que se superponga */
+        top: 0;
+        right: -250px; /* Inicialmente fuera de la pantalla */
+        width: 250px; /* Ancho pequeño */
+        height: 100vh; /* Altura completa */
+        background-color: #ffffff;
+        border-left: 2px solid #9c27b0; /* Borde izquierdo morado */
+        box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+        transition: right 0.3s ease; /* Animación suave */
+    }
+
+    /* Mostrar el menú cuando está activo */
+    nav.active {
+        display: block; /* Mostrar el menú */
+        right: 0; /* Muestra el menú desde la derecha */
+    }
+
+    /* Estilos para el menú en móviles */
+    nav ul {
+        flex-direction: column; /* Elementos uno debajo del otro */
+        padding: 20px 0; /* Espaciado interno */
+    }
+
+    nav ul li {
+        margin: 0; /* Sin margen entre elementos */
+        text-align: left; /* Alinear texto a la izquierda */
+        padding: 10px 20px; /* Espaciado interno */
+    }
+
+    nav ul li a {
+        font-size: 16px;
+        display: block; /* Hace que los enlaces ocupen todo el ancho */
+        color: #333; /* Color de texto oscuro */
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+        color: #9c27b0; /* Morado claro al hacer hover */
+    }
+
+    /* Mostrar la imagen solo en móviles */
+    .menu-image {
+        display: block; /* Mostrar la imagen */
+        text-align: center; /* Centrar la imagen */
+        padding: 20px; /* Espaciado interno */
+        border-top: 2px solid #9c27b0; /* Borde superior morado */
+        margin-top: 20px; /* Espacio entre el menú y la imagen */
+    }
+
+    .menu-image img {
+        max-width: 100%; /* Ajustar la imagen al ancho del menú */
+        height: auto; /* Mantener la proporción */
+        border-radius: 8px; /* Bordes redondeados */
+    }
 }
 
 /* Sección Hero */
@@ -66,239 +152,52 @@ nav ul li a {
     color: #333;
 }
 
+/* Estilos del título */
 .animated-title {
+    color: #9c27b0; /* Morado claro */
     font-size: 48px;
-    animation: fadeIn 2s ease-in-out;
+    margin-bottom: 20px;
+    opacity: 0; /* Inicialmente invisible */
+    transform: scale(0.8); /* Escala inicial para el efecto de "pop" */
+    animation: popIn 1s ease forwards; /* Animación de "pop" */
 }
 
-@keyframes fadeIn {
-    from {
+/* Animación de "pop" para el título */
+@keyframes popIn {
+    0% {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: scale(0.8);
     }
-    to {
+    100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
     }
 }
 
+/* Estilos del texto inspiracional */
 .inspirational-text {
     font-size: 18px;
     line-height: 1.6;
     max-width: 800px;
     margin: 20px auto;
     padding: 0 20px;
-    color: #333;
+    color: #555;
     text-align: justify;
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateY(20px); /* Desplazamiento inicial */
+    animation: fadeInUp 1s ease 0.5s forwards; /* Animación de "fade-in" con retraso */
 }
 
-/* Sección de Servicios */
-#servicios {
-    padding: 40px 20px;
-    background-color: #ffffff;
-}
-
-.service-box {
-    display: flex;
-    justify-content: space-around;
-    max-width: 1000px;
-    margin: 0 auto;
-    flex-wrap: wrap; /* Para que los servicios se ajusten en pantallas pequeñas */
-}
-
-.service {
-    text-align: center;
-    max-width: 400px;
-    background-color: #f9f9f9; /* Fondo más claro */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    flex: 1 1 300px; /* Flexbox para hacerlo responsive */
-    border: 2px solid transparent; /* Borde transparente por defecto */
-    transition: all 0.3s ease; /* Transición suave para animaciones */
-}
-
-/* Bordes dorados al hacer hover */
-.service:hover {
-    border: 2px solid #ffd700; /* Borde dorado */
-    transform: translateY(-10px); /* Efecto de levitación */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-}
-
-/* Animación de entrada para los cuadros de servicios */
+/* Animación de "fade-in" para el texto */
 @keyframes fadeInUp {
-    from {
+    0% {
         opacity: 0;
         transform: translateY(20px);
     }
-    to {
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* Aplicar animación a los cuadros de servicios */
-.service {
-    animation: fadeInUp 0.8s ease-out;
-}
-
-/* Estilos para el ícono de servicio */
-.service-icon {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease; /* Animación para el ícono */
-}
-
-/* Efecto de escala en el ícono al hacer hover */
-.service:hover .service-icon {
-    transform: scale(1.1); /* Escalar el ícono */
-}
-
-/* Sección de Mensaje y Versículo */
-#mensaje-versiculo {
-    text-align: center;
-    padding: 40px 20px;
-    background-color: #ffffff; /* Fondo blanco */
-}
-
-.message-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.beautiful-message {
-    font-size: 20px;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.bible-verse {
-    font-size: 24px;
-    font-style: italic;
-    color: #333; /* Color gris oscuro */
-}
-
-/* Pie de página */
-footer {
-    background-color: #ffffff; /* Fondo blanco */
-    color: #333;
-    text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #e0e0e0; /* Borde superior */
-}
-
-.social-icons {
-    margin-bottom: 10px;
-}
-
-.social-icons a {
-    color: #666; /* Color gris para los íconos */
-    font-size: 24px;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #000; /* Color negro al pasar el mouse */
-}
-
-/* Media Queries para Responsive Design */
-@media (max-width: 768px) {
-    /* Menú hamburguesa en móviles */
-    .hamburger {
-        display: block; /* Mostrar ícono de hamburguesa */
-    }
-
-    nav {
-        display: none; /* Ocultar menú por defecto en móviles */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    nav.active {
-        display: block; /* Mostrar menú cuando está activo */
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    /* Ajustes para la sección Hero */
-    .hero {
-        padding: 60px 20px;
-    }
-
-    .animated-title {
-        font-size: 36px; /* Título más pequeño en móviles */
-    }
-
-    .inspirational-text {
-        font-size: 16px; /* Texto más pequeño en móviles */
-    }
-
-    /* Ajustes para los servicios */
-    .service {
-        flex: 1 1 100%; /* Ocupar todo el ancho en móviles */
-        margin: 10px 0;
-    }
-
-    /* Ajustes para el mensaje y versículo */
-    .beautiful-message {
-        font-size: 18px;
-    }
-
-    .bible-verse {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Ajustes adicionales para pantallas muy pequeñas */
-    .animated-title {
-        font-size: 28px; /* Título aún más pequeño */
-    }
-
-    .inspirational-text {
-        font-size: 14px; /* Texto más pequeño */
-    }
-
-    .service h3 {
-        font-size: 20px; /* Títulos de servicios más pequeños */
-    }
-
-    .service p {
-        font-size: 14px; /* Texto de servicios más pequeño */
-    }
-
-    .beautiful-message {
-        font-size: 16px;
-    }
-
-    .bible-verse {
-        font-size: 18px;
-    }
-}
-
-/* Estilos para el footer */
-footer {
-    background-color: #ffffff; /* Fondo blanco */
-    color: #333;
-    text-align: center;
-    padding: 40px 0; /* Más padding */
-    border-top: 1px solid #e0e0e0; /* Borde superior */
-    position: relative; /* Para posicionar los íconos correctamente */
 }
 
 /* Estilos para el footer */
