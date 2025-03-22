@@ -307,132 +307,161 @@ p {
     transform: scale(1.05);
 }
 
-/* Sección Yolanda Padilla */
-#yolanda-padilla {
-    padding: 60px 20px;
-    background-color: #ffffff; /* Fondo blanco */
-    text-align: center;
+/* Estilos para la sección Yolanda Padilla */
+.hero-nosotros {
+    padding: 20px;
+    background-color: #f9f9f9; /* Fondo claro para la sección */
 }
 
 .yolanda-content {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
-    gap: 40px; /* Espacio entre el texto y la galería */
-    align-items: center;
+    align-items: flex-start; /* Alinea la imagen, el texto y la galería en la parte superior */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrado horizontalmente */
+    gap: 20px; /* Espacio entre elementos */
+}
+
+.cuadro-imagen {
+    flex: 1;
+    max-width: 30%; /* La imagen ocupa el 30% del ancho */
+    background-color: #fff; /* Fondo blanco para el cuadro */
+    border: 2px solid #8a2be2; /* Borde morado */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    animation: float 3s ease-in-out infinite; /* Animación de flotar */
+}
+
+.cuadro-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen para cubrir el espacio sin dejar huecos */
+    display: block;
 }
 
 .yolanda-text {
-    flex: 1;
-    text-align: left;
+    flex: 2;
+    padding: 0; /* Sin padding adicional */
 }
 
-.yolanda-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 20px;
+.inspirational-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 10px; /* Espacio entre párrafos */
 }
 
 .whatsapp-button {
-    background-color: #25D366; /* Color de WhatsApp */
-    color: white;
+    display: inline-block;
+    background-color: #25d366;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.yolanda-gallery {
+    flex: 1;
+    max-width: 30%; /* La galería ocupa el 30% del ancho */
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Altura fija para la galería */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #8a2be2; /* Borde morado */
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.gallery-image.active {
+    display: block;
+}
+
+.gallery-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.prev-button,
+.next-button {
+    background-color: #8a2be2;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+/* Animación de flotar */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Estilos para dispositivos móviles (pantallas menores a 768px) */
+@media (max-width: 768px) {
+    .yolanda-content {
+        flex-direction: column; /* Cambia a columna en móvil */
+        gap: 15px; /* Espacio reducido entre elementos */
+    }
+
+    .cuadro-imagen,
+    .yolanda-text,
+    .yolanda-gallery {
+        max-width: 100%; /* Ocupa todo el ancho en móvil */
+    }
+
+    .cuadro-imagen {
+        height: 150px; /* Altura reducida para la imagen en móvil */
+    }
+
+    .gallery-container {
+        height: 250px; /* Altura aumentada para la galería en móvil */
+    }
+
+    .inspirational-text {
+        font-size: 14px; /* Tamaño de texto un poco más pequeño */
+    }
+}
+
+/* Estilos para el botón de WhatsApp */
+.whatsapp-button {
+    background-color: #25D366; /* Color verde de WhatsApp */
+    color: white; /* Texto en blanco */
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
     font-size: 1rem;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 10px; /* Espacio entre el ícono y el texto */
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .whatsapp-button:hover {
-    background-color: #128C7E; /* Color de WhatsApp más oscuro */
-    transform: scale(1.05);
+    background-color: #128C7E; /* Color verde más oscuro al hacer hover */
+    transform: scale(1.05); /* Efecto de escala al hacer hover */
 }
 
-/* Galería de imágenes */
-.yolanda-gallery {
-    flex: 1;
-    max-width: 500px; /* Ancho máximo de la galería */
-    position: relative;
-}
-
-.gallery-container {
-    position: relative;
-    width: 100%;
-    height: 400px; /* Altura fija para la galería en pantallas grandes */
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    border: 4px solid #D8BFD8; /* Borde morado claro */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.gallery-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Ajustar la imagen para que se vea completa y centrada */
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.gallery-image.active {
-    opacity: 1; /* Mostrar la imagen activa */
-}
-
-/* Controles de la galería (ahora fuera de la imagen) */
-.gallery-controls {
-    margin-top: 20px; /* Espacio entre la imagen y los controles */
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Espacio entre los botones */
-}
-
-.gallery-controls button {
-    background-color: #D8BFD8; /* Fondo morado claro */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #4B0082; /* Color morado oscuro para los íconos */
-    transition: background-color 0.3s ease;
-}
-
-.gallery-controls button:hover {
-    background-color: #B19CD9; /* Fondo morado claro más oscuro al hacer hover */
-}
-
-/* Responsividad para móviles */
-@media (max-width: 768px) {
-    .yolanda-content {
-        flex-direction: column; /* Apilar texto y galería en móviles */
-    }
-
-    .yolanda-gallery {
-        max-width: 100%; /* Ocupar todo el ancho en móviles */
-    }
-
-    .gallery-container {
-        height: 200px; /* Altura más pequeña en móviles (más ancho y menos alto) */
-    }
-
-    .gallery-controls {
-        margin-top: 15px; /* Espacio reducido en móviles */
-    }
-
-    .gallery-controls button {
-        padding: 8px 16px; /* Botones más pequeños en móviles */
-        font-size: 1rem;
-    }
+.whatsapp-button i {
+    font-size: 1.2rem; /* Tamaño del ícono */
 }
 
 /* Pie de página */
@@ -453,46 +482,96 @@ footer {
     gap: 20px; /* Espacio entre los íconos */
 }
 
-/* Estilos base para los íconos de redes sociales */
-.social-icons a {
-    background-color: transparent; /* Fondo transparente */
-    color: inherit; /* Hereda el color del ícono */
-    font-size: 24px; /* Tamaño del ícono */
-    text-decoration: none; /* Quita el subrayado */
-    transition: all 0.3s ease;
+/* Estilos generales para la tarjeta */
+.tarjeta-pastora {
+    display: flex;
+    flex-direction: row; /* Imagen a la izquierda, texto a la derecha (PC) */
+    align-items: stretch; /* Asegura que la imagen y el texto tengan la misma altura */
+    background-color: #fff;
+    border: 2px solid #8a2be2; /* Borde morado */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 800px; /* Ancho máximo en PC */
+    margin: 20px auto; /* Centrado horizontalmente */
+    animation: float 3s ease-in-out infinite; /* Animación de flotar */
 }
 
-/* Efecto al hacer hover */
-.social-icons a:hover {
-    transform: scale(1.1); /* Efecto de escala */
+.tarjeta-imagen {
+    flex: 1;
+    max-width: 40%; /* La imagen ocupa el 40% del ancho */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Evita que la imagen se salga del contenedor */
 }
 
-/* Colores personalizados para cada red social */
-.social-icons .fa-tiktok {
-    color: #000000; /* Color negro para TikTok */
+.tarjeta-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen para cubrir el espacio sin dejar huecos */
+    display: block;
 }
 
-.social-icons .fa-facebook {
-    color: #1877f2; /* Color azul de Facebook */
+.tarjeta-contenido {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el texto verticalmente */
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.tarjeta-titulo {
+    font-size: 24px;
+    color: #8a2be2; /* Color morado */
+    margin-bottom: 10px;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
+.tarjeta-texto {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Animación de flotar */
+@keyframes float {
+    0%, 100% {
         transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Estilos para dispositivos móviles (pantallas menores a 768px) */
+@media (max-width: 768px) {
+    .tarjeta-pastora {
+        flex-direction: column; /* Cambia a columna: imagen arriba, texto abajo */
+        max-width: 100%; /* La tarjeta ocupa todo el ancho en móviles */
+        height: auto; /* Altura automática */
+    }
+
+    .tarjeta-imagen {
+        max-width: 100%; /* La imagen ocupa todo el ancho */
+        height: 200px; /* Altura fija para la imagen en móvil */
+    }
+
+    .tarjeta-imagen img {
+        border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
+        object-fit: cover; /* Ajusta la imagen para cubrir el espacio en móvil */
+    }
+
+    .tarjeta-contenido {
+        padding: 15px;
+        text-align: center; /* Centra el texto en móviles */
+    }
+
+    .tarjeta-titulo {
+        font-size: 20px; /* Tamaño de título un poco más pequeño */
+        margin-top: 10px; /* Espacio entre la imagen y el título */
+    }
+
+    .tarjeta-texto {
+        font-size: 14px; /* Tamaño de texto un poco más pequeño */
     }
 }
