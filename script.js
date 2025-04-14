@@ -34,3 +34,4 @@ document.addEventListener('DOMContentLoaded', function () {
     // Mostrar la primera imagen al cargar la página
     showImage(currentIndex);
 });
+

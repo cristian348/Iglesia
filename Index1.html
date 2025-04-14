@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iglesia Bethel</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Iconos de redes sociales y hamburguesa -->
+    <title>Eventos - Iglesia Bethel</title>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Iconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Librería AOS para animaciones -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-     <!-- Encabezado -->
-     <header>
+    <!-- Encabezado -->
+    <header class="header-sticky">
         <div class="logo-container">
             <img src="LOGO-SABANAGRANDE.png" alt="Logo Iglesia Bethel" class="logo">
             <h1>Iglesia Bethel</h1>
@@ -23,27 +28,116 @@
         <nav id="nav-menu">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="Index1.html">Eventos</a></li>
+                <li><a href="Index1.html" class="active">Eventos</a></li>
                 <li><a href="index2.html">Nosotros</a></li>
             </ul>
             <!-- Imagen dentro del menú (solo para móviles) -->
             <div class="menu-image">
                 <img src="LOGO-SABANAGRANDE.png" alt="Imagen del menú">
+                <p class="menu-verse">"Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos" - Mateo 18:20</p>
             </div>
         </nav>
     </header>
 
+    <!-- Sección de Eventos -->
+    <section class="eventos-section">
+        <div class="section-header" data-aos="fade-down" data-aos-duration="1000">
+            <h2 class="subtitulo">Nuestros Eventos</h2>
+            <p class="section-subtitle">Participa en nuestras actividades espirituales</p>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="eventos-container">
+            <!-- Evento 1 -->
+            <div class="evento-card" data-aos="fade-up" data-aos-duration="1000">
+                <img src="" alt="Retiro Espiritual" class="evento-imagen">
+                <div class="evento-contenido">
+                    <h3 class="evento-titulo">Aniversario ICBS</h3>
+                    <div class="evento-fecha">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>15 de noviembre 2025</span>
+                    </div>
+                    <p class="evento-descripcion">
+                        Con gozo y gratitud, celebramos un año más de la fidelidad de Dios sobre nuestra casa espiritual. Han sido años de milagros, crecimiento y sobre todo, de Su presencia constante entre nosotros.
+                        🙏 Cada servicio, cada oración, cada vida transformada ha sido parte del propósito eterno que el Señor tiene con Bethel.
+                    </p>
+                    <div class="evento-ubicacion">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Iglesia Bethel</span>
+                    </div>
+                    <a href="#" class="evento-boton">Más información</a>
+                </div>
+            </div>
+
+           
+
+            <!-- Evento 3 -->
+            <div class="evento-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <img src="evento3.jpg" alt="Servolution" class="evento-imagen">
+                <div class="evento-contenido">
+                    <h3 class="evento-titulo">Servolution 2025</h3>
+                    <div class="evento-fecha">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>10 de Noviembre 2025</span>
+                    </div>
+                    <p class="evento-descripcion">
+                        Nuestro evento anual para servidores. Talleres especializados, enseñanza 
+                        sobre ministerio y oportunidades para crecer en tu llamado. Para todos los 
+                        que sirven en cualquier área de la iglesia.
+                    </p>
+                    <div class="evento-ubicacion">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Iglesia Bethel</span>
+                    </div>
+                    <a href="#" class="evento-boton">Más información</a>
+                </div>
+            </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="LOGO-SABANAGRANDE.png" alt="Logo Iglesia Bethel">
+                <h3>Iglesia Bethel</h3>
+                <p>Una familia en Cristo</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="Index1.html" class="active">Eventos</a></li>
+                    <li><a href="index2.html">Nosotros</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@icbsjuvenildreamers?_t=ZS-8um473U8QJG&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/share/15k4A4BxZU/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/share/1665Ab78tM/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://wa.me/573046668468" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Iglesia Bethel. Todos los derechos reservados.</p>
+            <p class="footer-verse">"Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados." - Romanos 8:28</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-
-   <!-- Pie de Página -->
-   <footer>
-    <div class="social-icons">
-        <a href="https://www.tiktok.com/@icbsjuvenildreamers?_t=ZS-8um473U8QJG&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.facebook.com/share/15k4A4BxZU/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.facebook.com/share/1665Ab78tM/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
-    </div>
-    <p>&copy; 2025 Iglesia Bethel. Todos los derechos reservados.</p>
-</footer>
-
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
 </body>
 </html>

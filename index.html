@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página - Iglesia Bethel</title>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <!-- Iconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Librería AOS para animaciones -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-      <!-- Encabezado -->
-      <header>
+    <!-- Encabezado -->
+    <header class="header-sticky">
         <div class="logo-container">
             <img src="LOGO-SABANAGRANDE.png" alt="Logo Iglesia Bethel" class="logo">
             <h1>Iglesia Bethel</h1>
@@ -30,11 +34,10 @@
             <!-- Imagen dentro del menú (solo para móviles) -->
             <div class="menu-image">
                 <img src="LOGO-SABANAGRANDE.png" alt="Imagen del menú">
+                <p class="menu-verse">"Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos" - Mateo 18:20</p>
             </div>
         </nav>
     </header>
-
-    <script src="script.js"></script>
 
     <!-- Sección de Inicio -->
     <section id="inicio" class="hero">
@@ -48,112 +51,142 @@
         </p>
     </section>
 
-<!-- Sección de Servicios -->
-<section id="servicios">
-    <div class="service-title-container">
-        <h2>Nuestros Servicios</h2>
-    </div>
-    <div class="service-box">
-        <!-- Primer par de servicios -->
-        <div class="service-row">
-            <div class="service">
-                <div class="service-image-container">
-                    <img src="daniel-schaffer-arwwg4geM2A-unsplash.webp" alt="Servicio Juvenil" class="service-image" loading="lazy">
+    <!-- Sección de Servicios -->
+    <section id="servicios">
+        <div class="service-title-container">
+            <h2>Nuestros Servicios</h2>
+        </div>
+        <div class="service-box">
+            <!-- Primer par de servicios -->
+            <div class="service-row">
+                <div class="service">
+                    <div class="service-image-container">
+                        <img src="daniel-schaffer-arwwg4geM2A-unsplash.webp" alt="Servicio Juvenil" class="service-image" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3>Servicio Juvenil</h3>
+                        <p>Únete a nuestro servicio juvenil los sábados a las 6:00 PM. Un espacio para jóvenes donde compartimos la palabra de Dios, alabanzas y actividades recreativas. ¡Ven y sé parte de esta experiencia transformadora!</p>
+                        <div class="service-time">
+                            <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="#FF6F61" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                <path fill="#FF6F61" d="M16.24 7.76l-4.24 4.24V7h-2v6h6v-2h-4.24l4.24-4.24z"/>
+                            </svg>
+                            <span>Sábado 6:30 PM</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-content">
-                    <h3>Servicio Juvenil</h3>
-                    <p>Únete a nuestro servicio juvenil los sábados a las 6:00 PM. Un espacio para jóvenes donde compartimos la palabra de Dios, alabanzas y actividades recreativas. ¡Ven y sé parte de esta experiencia transformadora!</p>
-                    <div class="service-time">
-                        <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                            <path fill="#FF6F61" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                            <path fill="#FF6F61" d="M16.24 7.76l-4.24 4.24V7h-2v6h6v-2h-4.24l4.24-4.24z"/>
-                        </svg>
-                        <span>Sábado 6:00 PM</span>
+                <div class="service">
+                    <div class="service-image-container">
+                        <img src="dominical.webp" alt="Servicio Dominical" class="service-image" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3>Servicio Dominical</h3>
+                        <p>Nuestro servicio general se realiza los domingos a las 9:00 AM. Ven y adora con nosotros en un ambiente lleno de amor y fe. ¡Déjate guiar por la presencia de Dios y fortalece tu espíritu!</p>
+                        <div class="service-time">
+                            <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="#6B5B95" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                <path fill="#6B5B95" d="M16.24 7.76l-4.24 4.24V7h-2v6h6v-2h-4.24l4.24-4.24z"/>
+                            </svg>
+                            <span>Domingo 9:00 AM</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="service">
-                <div class="service-image-container">
-                    <img src="dominical.webp" alt="Servicio Dominical" class="service-image" loading="lazy">
+
+            <!-- Segundo par de servicios -->
+            <div class="service-row">
+                <div class="service">
+                    <div class="service-image-container">
+                        <img src="miercoles.webp" alt="Servicio de Miércoles" class="service-image" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3>Servicio de Miércoles</h3>
+                        <p>Los miércoles a las 7:00 PM nos reunimos para compartir un momento de reflexión y oración. Es un espacio para recargar energías espirituales y conectar con Dios en medio de la semana. ¡Te esperamos!</p>
+                        <div class="service-time">
+                            <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="#88B04B" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                <path fill="#88B04B" d="M16.24 7.76l-4.24 4.24V7h-2v6h6v-2h-4.24l4.24-4.24z"/>
+                            </svg>
+                            <span>Miércoles 7:00 PM</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-content">
-                    <h3>Servicio Dominical</h3>
-                    <p>Nuestro servicio general se realiza los domingos a las 9:00 AM. Ven y adora con nosotros en un ambiente lleno de amor y fe. ¡Déjate guiar por la presencia de Dios y fortalece tu espíritu!</p>
-                    <div class="service-time">
-                        <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                            <path fill="#6B5B95" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                            <path fill="#6B5B95" d="M16.24 7.76l-4.24 4.24V7h-2v6h6v-2h-4.24l4.24-4.24z"/>
-                        </svg>
-                        <span>Domingo 9:00 AM</span>
+                <div class="service">
+                    <div class="service-image-container">
+                        <img src="ayuno.webp" alt="Servicio de Ayuno" class="service-image" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3>Servicio de Ayuno</h3>
+                        <p>Los sábados por la mañana a las 8:20 AM tenemos nuestro servicio de ayuno. Un tiempo especial para buscar a Dios con humildad y entrega, renovando nuestras fuerzas y recibiendo su bendición. ¡Ven y vive esta experiencia de fe y renovación!</p>
+                        <div class="service-time">
+                            <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="#FFA500" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                <path fill="#FFA500" d="M16.24 7.76l-4.24 4.24V7h-2v6h6v-2h-4.24l4.24-4.24z"/>
+                            </svg>
+                            <span>Sábado 8:20 AM</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Segundo par de servicios -->
-        <div class="service-row">
-            <div class="service">
-                <div class="service-image-container">
-                    <img src="miercoles.webp" alt="Servicio de Miércoles" class="service-image" loading="lazy">
-                </div>
-                <div class="service-content">
-                    <h3>Servicio de Miércoles</h3>
-                    <p>Los miércoles a las 7:00 PM nos reunimos para compartir un momento de reflexión y oración. Es un espacio para recargar energías espirituales y conectar con Dios en medio de la semana. ¡Te esperamos!</p>
-                    <div class="service-time">
-                        <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                            <path fill="#88B04B" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                            <path fill="#88B04B" d="M16.24 7.76l-4.24 4.24V7h-2v6h6v-2h-4.24l4.24-4.24z"/>
-                        </svg>
-                        <span>Miércoles 7:00 PM</span>
-                    </div>
-                </div>
-            </div>
-            <div class="service">
-                <div class="service-image-container">
-                    <img src="ayuno.webp" alt="Servicio de Ayuno" class="service-image" loading="lazy">
-                </div>
-                <div class="service-content">
-                    <h3>Servicio de Ayuno</h3>
-                    <p>Los sábados por la mañana a las 8:20 AM tenemos nuestro servicio de ayuno. Un tiempo especial para buscar a Dios con humildad y entrega, renovando nuestras fuerzas y recibiendo su bendición. ¡Ven y vive esta experiencia de fe y renovación!</p>
-                    <div class="service-time">
-                        <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                            <path fill="#FFA500" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                            <path fill="#FFA500" d="M16.24 7.76l-4.24 4.24V7h-2v6h6v-2h-4.24l4.24-4.24z"/>
-                        </svg>
-                        <span>Sábado 8:20 AM</span>
-                    </div>
-                </div>
-            </div>
+    <!-- Sección de Mensaje y Versículo -->
+    <section id="mensaje-versiculo">
+        <div class="message-container" data-aos="fade-up" data-aos-duration="1000">
+            <p class="beautiful-message">
+                En la <strong>Iglesia Bethel</strong>, creemos que nunca es tarde para empezar de nuevo. Cada día es una oportunidad para acercarse a Dios, encontrar paz y renovar tu espíritu. ¡Dios te ama y siempre está listo para recibirte con amor y misericordia!
+            </p>
+            <p class="bible-verse">
+                "He aquí, ahora es el tiempo aceptable; he aquí, ahora es el día de salvación." - 2 Corintios 6:2
+            </p>
         </div>
-    </div>
-</section>
-
-<!-- Sección de Mensaje y Versículo -->
-<section id="mensaje-versiculo">
-    <div class="message-container" data-aos="fade-up" data-aos-duration="1000">
-        <p class="beautiful-message">
-            En la <strong>Iglesia Bethel</strong>, creemos que nunca es tarde para empezar de nuevo. Cada día es una oportunidad para acercarse a Dios, encontrar paz y renovar tu espíritu. ¡Dios te ama y siempre está listo para recibirte con amor y misericordia!
-        </p>
-        <p class="bible-verse">
-            "He aquí, ahora es el tiempo aceptable; he aquí, ahora es el día de salvación." - 2 Corintios 6:2
-        </p>
-    </div>
-</section>
+    </section>
 
     <!-- Pie de Página -->
     <footer>
-        <div class="social-icons">
-            <a href="https://www.tiktok.com/@icbsjuvenildreamers?_t=ZS-8um473U8QJG&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.facebook.com/share/15k4A4BxZU/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.facebook.com/share/1665Ab78tM/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="LOGO-SABANAGRANDE.png" alt="Logo Iglesia Bethel">
+                <h3>Iglesia Bethel</h3>
+                <p>Una familia en Cristo</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="Index1.html">Eventos</a></li>
+                    <li><a href="index2.html">Nosotros</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@icbsjuvenildreamers?_t=ZS-8um473U8QJG&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/share/15k4A4BxZU/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/share/1665Ab78tM/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://wa.me/573046668468" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
-        <p>&copy; 2025 Iglesia Bethel. Todos los derechos reservados.</p>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Iglesia Bethel. Todos los derechos reservados.</p>
+            <p class="footer-verse">"Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados." - Romanos 8:28</p>
+        </div>
     </footer>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
     <script>
-        AOS.init();
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
     </script>
 </body>
 </html>

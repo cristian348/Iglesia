@@ -1,357 +1,517 @@
 /* Estilos generales */
+:root {
+  --primary-color: #6a1b9a;
+  --secondary-color: #9c27b0;
+  --accent-color: #e1bee7;
+  --light-color: #f3e5f5;
+  --dark-color: #4a148c;
+  --text-color: #333;
+  --text-light: #666;
+  --white: #ffffff;
+  --black: #000000;
+  --font-main: 'Montserrat', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+  font-family: var(--font-main);
+  color: var(--text-color);
+  background-color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Encabezado */
-header {
-    background-color: #ffffff;
-    color: #000;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
+/* Encabezado - Menú Responsive */
+.header-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  transition: var(--transition);
 }
 
-/* Contenedor del logo */
 .logo-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+  height: 60px;
+  width: auto;
+  transition: var(--transition);
 }
 
-header h1 {
-    font-size: 24px;
-    margin: 0;
+.header-sticky h1 {
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+  margin-left: 15px;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-/* Ícono de hamburguesa */
 .hamburger {
-    display: none; /* Oculto por defecto en pantallas grandes */
-    font-size: 24px;
-    cursor: pointer;
+  display: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  transition: var(--transition);
 }
 
-/* Menú de navegación */
+.hamburger:hover {
+  color: var(--secondary-color);
+}
+
 nav {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+  display: flex;
+  list-style: none;
 }
 
 nav ul li {
-    margin: 0 15px;
+  margin: 0 15px;
+  position: relative;
 }
 
 nav ul li a {
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  position: relative;
+  padding: 5px 0;
 }
 
-nav ul li a:hover {
-    color: #9c27b0; /* Morado claro al hacer hover */
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--primary-color);
 }
 
-/* Ocultar la imagen en la versión de escritorio */
+nav ul li a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+
+nav ul li a:hover:after,
+nav ul li a.active:after {
+  width: 100%;
+}
+
 .menu-image {
-    display: none;
+  display: none;
 }
 
-/* Estilos para móviles */
-@media (max-width: 768px) {
-    /* Mostrar el ícono de hamburguesa en móviles */
-    .hamburger {
-        display: block;
-    }
-
-    /* Ocultar el menú por defecto en móviles */
-    nav {
-        display: none;
-        position: fixed; /* Fijo para que se superponga */
-        top: 0;
-        right: -250px; /* Inicialmente fuera de la pantalla */
-        width: 250px; /* Ancho pequeño */
-        height: 100vh; /* Altura completa */
-        background-color: #ffffff;
-        border-left: 2px solid #9c27b0; /* Borde izquierdo morado */
-        box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
-        z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
-        transition: right 0.3s ease; /* Animación suave */
-    }
-
-    /* Mostrar el menú cuando está activo */
-    nav.active {
-        display: block; /* Mostrar el menú */
-        right: 0; /* Muestra el menú desde la derecha */
-    }
-
-    /* Estilos para el menú en móviles */
-    nav ul {
-        flex-direction: column; /* Elementos uno debajo del otro */
-        padding: 20px 0; /* Espaciado interno */
-    }
-
-    nav ul li {
-        margin: 0; /* Sin margen entre elementos */
-        text-align: left; /* Alinear texto a la izquierda */
-        padding: 10px 20px; /* Espaciado interno */
-    }
-
-    nav ul li a {
-        font-size: 16px;
-        display: block; /* Hace que los enlaces ocupen todo el ancho */
-        color: #333; /* Color de texto oscuro */
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-        color: #9c27b0; /* Morado claro al hacer hover */
-    }
-
-    /* Mostrar la imagen solo en móviles */
-    .menu-image {
-        display: block; /* Mostrar la imagen */
-        text-align: center; /* Centrar la imagen */
-        padding: 20px; /* Espaciado interno */
-        border-top: 2px solid #9c27b0; /* Borde superior morado */
-        margin-top: 20px; /* Espacio entre el menú y la imagen */
-    }
-
-    .menu-image img {
-        max-width: 100%; /* Ajustar la imagen al ancho del menú */
-        height: auto; /* Mantener la proporción */
-        border-radius: 8px; /* Bordes redondeados */
-    }
+/* Sección de Eventos */
+.eventos-section {
+  padding: 150px 0 100px;
+  background-color: var(--light-color);
 }
 
-/* Sección Hero */
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-    background-color: #f0f0f0; /* Fondo gris claro */
-    color: #333;
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-/* Estilos del título */
-.animated-title {
-    color: #9c27b0; /* Morado claro */
-    font-size: 48px;
-    margin-bottom: 20px;
-    opacity: 0; /* Inicialmente invisible */
-    transform: scale(0.8); /* Escala inicial para el efecto de "pop" */
-    animation: popIn 1s ease forwards; /* Animación de "pop" */
+.subtitulo {
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
 }
 
-/* Animación de "pop" para el título */
-@keyframes popIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+.section-subtitle {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
 
-/* Estilos del texto inspiracional */
-.inspirational-text {
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 20px;
-    color: #555;
-    text-align: justify;
-    opacity: 0; /* Inicialmente invisible */
-    transform: translateY(20px); /* Desplazamiento inicial */
-    animation: fadeInUp 1s ease 0.5s forwards; /* Animación de "fade-in" con retraso */
+.section-divider {
+  height: 3px;
+  width: 80px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  margin: 0 auto;
+  border-radius: 3px;
 }
 
-/* Animación de "fade-in" para el texto */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* Estilos para móviles */
-@media (max-width: 768px) {
-    /* Mostrar el ícono de hamburguesa en móviles */
-    .hamburger {
-        display: block;
-    }
-
-    /* Ocultar el menú por defecto en móviles */
-    nav {
-        display: none;
-        position: absolute;
-        top: 70px; /* Ajusta la posición debajo del header */
-        right: 20px; /* Alinea el menú a la derecha */
-        width: 200px; /* Ancho fijo y estrecho */
-        background-color: #ffffff;
-        border: 2px solid #9c27b0; /* Borde morado claro */
-        border-radius: 10px; /* Bordes redondeados */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
-    }
-
-    /* Mostrar el menú cuando está activo */
-    nav.active {
-        display: block;
-    }
-
-    /* Estilos para el menú en móviles */
-    nav ul {
-        flex-direction: column; /* Elementos uno debajo del otro */
-        padding: 10px 0; /* Espaciado interno */
-    }
-
-    nav ul li {
-        margin: 0; /* Sin margen entre elementos */
-        text-align: left; /* Alinea el texto a la izquierda */
-        padding: 10px 20px; /* Espaciado interno */
-    }
-
-    nav ul li a {
-        font-size: 16px;
-        display: block; /* Hace que los enlaces ocupen todo el ancho */
-        color: #333; /* Color de texto oscuro */
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-        color: #9c27b0; /* Morado claro al hacer hover */
-    }
+.eventos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Pie de página */
+.evento-card {
+  background: var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 40px;
+  transition: var(--transition);
+}
+
+.evento-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.evento-imagen {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.evento-contenido {
+  padding: 30px;
+}
+
+.evento-titulo {
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.evento-fecha {
+  display: flex;
+  align-items: center;
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.evento-fecha i {
+  margin-right: 10px;
+}
+
+.evento-descripcion {
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.evento-ubicacion {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: var(--text-light);
+}
+
+.evento-ubicacion i {
+  margin-right: 10px;
+  color: var(--primary-color);
+}
+
+.evento-boton {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 12px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 5px 15px rgba(106, 27, 154, 0.3);
+}
+
+.evento-boton:hover {
+  background: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(106, 27, 154, 0.4);
+}
+
+/* Pie de Página */
 footer {
-    background-color: #ffffff; /* Fondo blanco */
-    color: #333;
-    text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #e0e0e0; /* Borde superior */
+  background: var(--dark-color);
+  color: var(--white);
+  padding: 60px 0 0;
+}
+
+.footer-content {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 40px;
+}
+
+.footer-logo img {
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+.footer-logo h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.footer-logo p {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.footer-links {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 40px;
+}
+
+.footer-links h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-links h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1rem;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  padding-left: 5px;
+}
+
+.footer-social {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 40px;
+}
+
+.footer-social h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-social h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--accent-color);
 }
 
 .social-icons {
-    margin-bottom: 10px;
+  display: flex;
+  gap: 15px;
 }
 
 .social-icons a {
-    color: #666; /* Color gris para los íconos */
-    font-size: 24px;
-    margin: 0 10px;
-    transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 1.2rem;
+  transition: var(--transition);
 }
 
 .social-icons a:hover {
-    color: #000; /* Color negro al pasar el mouse */
+  background: var(--accent-color);
+  color: var(--dark-color);
+  transform: translateY(-3px);
 }
 
-/* Estilos responsive para el menú */
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 40px;
+}
+
+.footer-bottom p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-verse {
+  font-style: italic;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    /* Mostrar ícono de hamburguesa en móviles */
-    .hamburger {
-        display: block;
-    }
-
-    /* Ocultar menú por defecto en móviles */
-    nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Mostrar menú cuando está activo */
-    nav.active {
-        display: block;
-    }
-
-    /* Cambiar a disposición vertical en móviles */
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-        text-align: center;
-    }
-}
-
-/* Estilos para el footer */
-footer {
-    background-color: #ffffff; /* Fondo blanco */
-    color: #333;
+  .header-sticky {
+    padding: 15px;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+  
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 80px;
+    transition: right 0.3s ease;
+    z-index: 999;
+  }
+  
+  nav.active {
+    right: 0;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  nav ul li {
+    margin: 0;
     text-align: center;
-    padding: 40px 0; /* Más padding */
-    border-top: 1px solid #e0e0e0; /* Borde superior */
-    position: relative; /* Para posicionar los íconos correctamente */
-}
-
-/* Contenedor de íconos de redes sociales en el footer */
-.social-icons {
-    margin-bottom: 20px; /* Más espacio */
+    padding: 15px;
+  }
+  
+  nav ul li a {
+    font-size: 1.2rem;
+  }
+  
+  .menu-image {
     display: flex;
-    justify-content: center; /* Centrar los íconos */
-    gap: 20px; /* Espacio entre los íconos */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 1px solid #eee;
+  }
+  
+  .menu-image img {
+    width: 100px;
+    margin-bottom: 15px;
+  }
+  
+  .menu-verse {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .eventos-section {
+    padding: 120px 0 80px;
+  }
+  
+  .subtitulo {
+    font-size: 2rem;
+  }
+  
+  .evento-imagen {
+    height: 250px;
+  }
+  
+  .evento-contenido {
+    padding: 20px;
+  }
+  
+  .evento-titulo {
+    font-size: 1.5rem;
+  }
 }
 
-/* Estilos base para los íconos de redes sociales */
-.social-icons a {
-    background-color: transparent; /* Fondo transparente */
-    color: inherit; /* Hereda el color del ícono */
-    font-size: 24px; /* Tamaño del ícono */
-    text-decoration: none; /* Quita el subrayado */
-    transition: all 0.3s ease;
-}
-
-/* Efecto al hacer hover */
-.social-icons a:hover {
-    transform: scale(1.1); /* Efecto de escala */
-}
-
-/* Colores personalizados para cada red social */
-.social-icons .fa-tiktok {
-    color: #000000; /* Color negro para TikTok */
-}
-
-.social-icons .fa-facebook {
-    color: #1877f2; /* Color azul de Facebook */
-}
-
-/* Ajustes para dispositivos móviles */
-@media (max-width: 768px) {
-    .social-icons a {
-        font-size: 20px; /* Ícono más pequeño */
-    }
+@media (max-width: 576px) {
+  .logo {
+    height: 50px;
+  }
+  
+  .header-sticky h1 {
+    font-size: 1.2rem;
+  }
+  
+  .subtitulo {
+    font-size: 1.8rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+  }
+  
+  .footer-logo,
+  .footer-links,
+  .footer-social {
+    min-width: 100%;
+    text-align: center;
+  }
+  
+  .footer-links h3:after,
+  .footer-social h3:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
 }
